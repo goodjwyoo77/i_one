@@ -1,7 +1,7 @@
 {% extends 'main.html' %}
 {% block head %}
 <link rel="stylesheet" href="/static/css/signup.css">
-<script src="/static/javascript/signup.js"></script>
+
 <title>SIGN UP</title>
 {% endblock %}
 {% block body %}
@@ -9,7 +9,7 @@
 <div>
     <div class="signup-page">
         <div class="form">
-            <form class="login-form" action="/user/signup" method="POST">
+            <form class="login-form" action="/users/signup" method="POST" id="signup_frm">
                 <select class="location" name="location" id="location">
                     <option value="">지역을 선택해 주세요.</option>
                     <option value="경기">경기</option>
@@ -30,10 +30,11 @@
                     <option value="제주">제주</option>
                     <option value="해외">해외</option>
                 </select>
-                <input type="text" placeholder="이메일을 입력해주세요." name="email"/>
-                <input type="text" placeholder="이름을 입력해주세요." name="name"/>
-                <input type="password" placeholder="비밀번호를 입력해주세요."name="password"/>
-                <input type="password" placeholder="비밀번호를 다시 입력해주세요."/>
+                <input type="text" placeholder="사용할 ID 를 입력해주세요." name="userId" id="userId"/>
+                <input type="text" placeholder="이메일을 입력해주세요." name="email" id="email"/>
+                <input type="text" placeholder="이름을 입력해주세요." name="name" id="name"/>
+                <input type="password" placeholder="비밀번호를 입력해주세요."name="password" id="password"/>
+                <input type="password" placeholder="비밀번호를 다시 입력해주세요." id="checked_password"/>
                 <span class="gender">
                 <label><input type="radio" name="gender" value="1" checked>남성</label>
                 <label><input type="radio" name="gender" value="2">여성</label>
@@ -43,5 +44,9 @@
         </div>
     </div>
 </div>
+<div  id="data">
+    {{ data }}
+</div>
 
 {% endblock %}
+<script src="/static/javascript/signup.js"></script>
